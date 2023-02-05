@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Excluir diretórios, arquivos, grupos e usuários existentes
+rm -rf /path/to/existing/directories
+userdel existing_user
+groupdel existing_group
+
+# Criar novos diretórios
+mkdir /path/to/public
+mkdir /path/to/group1
+mkdir /path/to/group2
+
+# Definir dono como root
+chown -R root:root /path/to/public
+chown -R root:root /path/to/group1
+chown -R root:root /path/to/group2
+
+# Definir permissões para usuários e grupos
+chmod -R 775 /path/to/public
+chmod -R 770 /path/to/group1
+chmod -R 770 /path/to/group2
+
+# Adicionar usuários a grupos
+useradd user1 -g group1
+useradd user2 -g group2
+useradd user3 -g group2
+
+# Subir arquivo de script para a sua conta no GitHub
+git init
+git add script.sh
+git commit -m "Initial commit"
+git remote add origin https://github.com/your_username/your_repository.git
+git push -u origin master
